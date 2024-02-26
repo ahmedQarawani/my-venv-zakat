@@ -1,0 +1,17 @@
+<nav>
+    <ul>
+        <li><a href="{% url 'home' %}">الصفة الرئيسية</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'profile' %}">الملف الشخصي</a></li>
+            <li><a href="{% url 'logout' %}">تسجيل الخروج</a></li>
+        {% else %}
+            <li><a href="{% url 'login' %}">تسجيل الدخول</a></li>
+            <li><a href="{% url 'signup' %}">انشاء حساب</a></li>
+        {% endif %}
+        <li><a href="{% url 'calculate_gold_zakat' %}">حساب زكاة الذهب</a></li>
+        <li><a href="{% url 'calculate_silver_zakat' %}">حساب زكاة الفضة</a></li>
+        <li><a href="{% url 'calculate_money_zakat' %}">حساب زكاة المال</a></li>
+        <li><a href="{% url 'calculate_plant_zakat' %}">حساب زكاة الزروع والثمار</a></li>
+        <li><a href="{% url 'calculate_livestock_zakat' %}">حساب زكاة الانعام</a></li>
+    </ul>
+</nav>

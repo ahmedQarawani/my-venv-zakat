@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>الملف الشخصي</h1>
+    <p>مرحبًا بك، {{ user.username }}!</p>
+    <p>  الملف الشخصي </p>
+    
+    <h2>حسابات زكاة الذهب</h2>
+    
+    <ul>
+        {% for gold_zakat in gold_zakats %}
+         <li><strong>وزن الذهب :</strong> {{ gold_zakat.weight }} <strong>غرام</strong>,<strong> عيار الذهب:</strong> {{ gold_zakat.gold_karat }}, <strong>الزكاة الواجبة عليك:</strong> {{ gold_zakat.amount }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>حسابات زكاة المال</h2>
+    <ul>
+        {% for money_zakat in money_zakats %}
+            <li>{{ money_zakat.amount }} <strong>الزكاة الواجبة عليك</strong></li>
+        {% endfor %}
+    </ul>
+
+ 
+
+    <h2>حسابات زكاة الفضة</h2>
+    <ul>
+        {% for silver_zakat in silver_zakats %}
+        <li><strong>وزن الفضة:</strong> {{ silver_zakat.weight }}<strong> غرام,  الزكاة الواجبة عليك:</strong> {{ silver_zakat.amount }}</li>
+        {% endfor %}
+    </ul>
+
+    
+
+    <h2>حسابات زكاة الزروع والثمار</h2>
+    <ul>
+        {% for plant_zakat in plant_zakats %}
+        <li><strong>عدد الكيلو غرامات التي تمتلكها:</strong> {{ plant_zakat.Plants_per_kilo }} <strong>غرام,  </strong><strong>الزكاة الواجبة عليك: </strong>{{ plant_zakat.amount }}</li>
+        {% endfor %}
+    </ul>    
+    <p><a href="{% url 'logout' %}">تسجيل الخروج</a></p>
+{% endblock %}
